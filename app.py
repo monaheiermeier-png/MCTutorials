@@ -19,14 +19,24 @@ def redstone():
     return render_template("redstone.html")
 
 
-@app.route("/buildings")
-def buildings():
-    return render_template("buildings.html")
+@app.route("/building")
+def building():
+    return render_template("building.html")
 
 
 @app.route("/farms")
 def farms():
     return render_template("farms.html")
+
+
+@app.route("/upload")
+def upload():
+    return render_template("upload.html")
+
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
 
 
 if __name__ == "__main__":
