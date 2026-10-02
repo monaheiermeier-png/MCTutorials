@@ -19,8 +19,8 @@ def redstone():
     return render_template("redstone.html")
 
 
-@app.route("/building")
-def building():
+@app.route("/buildings")
+def buildings():
     return render_template("building.html")
 
 
