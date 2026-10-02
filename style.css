@@ -169,4 +169,18 @@ p {
     .signup-container h1 {
         font-size: 32px;
     }
+}.nav-right {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.signup-button {
+    display: inline-block !important;
+    visibility: visible !important;
+    background-color: #55aa55 !important;
+    color: white !important;
+    padding: 10px 18px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
 }
