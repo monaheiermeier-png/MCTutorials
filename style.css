@@ -11,6 +11,28 @@ body {
 
 
 /* =========================
+   HEADER
+   ========================= */
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #333;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 48px;
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+
+/* =========================
    NAVIGATION
    ========================= */
 
@@ -24,8 +46,8 @@ nav {
 
 .nav-left {
     display: flex;
-    gap: 25px;
     align-items: center;
+    gap: 25px;
 }
 
 .nav-right {
@@ -50,10 +72,13 @@ nav a:hover {
    ========================= */
 
 .signup-button {
+    display: inline-block !important;
     background-color: #55aa55;
     color: white !important;
     padding: 10px 18px;
     border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .signup-button:hover {
@@ -63,27 +88,71 @@ nav a:hover {
 
 
 /* =========================
-   HEADINGS
+   MAIN CONTENT
    ========================= */
 
-h1 {
-    text-align: center;
-    font-size: 42px;
-    margin-top: 50px;
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
 }
 
-h2 {
+main h2 {
     text-align: center;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+main > p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 40px;
 }
 
 
 /* =========================
-   TEXT
+   TUTORIAL CARDS
    ========================= */
 
-p {
+.tutorials {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    width: 280px;
+    padding: 25px;
+    border-radius: 12px;
     text-align: center;
-    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    font-size: 22px;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.card button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #55aa55;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #448844;
 }
 
 
@@ -93,12 +162,14 @@ p {
 
 .signup-container {
     width: 400px;
-    margin: 100px auto;
+    max-width: calc(100% - 40px);
+    margin: 80px auto;
     padding: 40px;
     background-color: white;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
 }
 
 .signup-container h1 {
@@ -144,24 +215,51 @@ p {
 
 
 /* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #222;
+    color: white;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* =========================
    MOBILE
    ========================= */
 
 @media (max-width: 600px) {
 
     nav {
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 15px;
     }
 
     .nav-left {
         flex-wrap: wrap;
-        gap: 15px;
+        justify-content: center;
+    }
+
+    .nav-right {
+        justify-content: center;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    main h2 {
+        font-size: 28px;
     }
 
     .signup-container {
-        width: calc(100% - 40px);
-        box-sizing: border-box;
         margin: 50px auto;
         padding: 25px;
     }
@@ -169,18 +267,4 @@ p {
     .signup-container h1 {
         font-size: 32px;
     }
-}.nav-right {
-    display: block !important;
-    visibility: visible !important;
-}
-
-.signup-button {
-    display: inline-block !important;
-    visibility: visible !important;
-    background-color: #55aa55 !important;
-    color: white !important;
-    padding: 10px 18px !important;
-    border-radius: 8px !important;
-    text-decoration: none !important;
-    font-weight: bold !important;
 }
