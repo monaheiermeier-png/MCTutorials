@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1b1b1b;
+    color: white;
+}
+
+header {
+    background-color: #3b8526;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 45px;
+    margin: 0;
+}
+
+header p {
+    font-size: 18px;
+}
+
+nav {
+    background-color: #222;
+    text-align: center;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #55ff55;
+}
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 32px;
+}
+
+.tutorials {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #292929;
+    border: 2px solid #3b8526;
+    border-radius: 10px;
+    padding: 25px;
+    width: 250px;
+}
+
+.card h3 {
+    color: #55ff55;
+}
+
+button {
+    background-color: #3b8526;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #55aa35;
+}
+
+footer {
+    text-align: center;
+    background-color: #111;
+    padding: 20px;
+    margin-top: 50px;
+}
