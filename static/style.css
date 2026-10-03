@@ -39,21 +39,16 @@ header p {
 nav {
     display: flex;
     align-items: center;
+    gap: 25px;
     padding: 15px 25px;
     background-color: #222;
-    min-height: 60px;
-    box-sizing: border-box;
 }
-
-/* Linke Navigation */
 
 .nav-left {
     display: flex;
     align-items: center;
     gap: 25px;
 }
-
-/* Alle Navigations-Links */
 
 nav a {
     color: white;
@@ -62,27 +57,26 @@ nav a {
     font-weight: bold;
 }
 
-/* Hover-Effekt */
-
 nav a:hover {
     color: #55ff55;
 }
 
 
 /* =========================
-   SIGN UP BUTTON
+   SIGN UP
    ========================= */
 
 .signup-button {
     margin-left: auto;
-    background-color: #55aa55;
+    
     color: white !important;
-    padding: 12px 22px;
-    border-radius: 8px;
+    text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    text-decoration: none;
-    display: block;
+    
+    background-color: #55aa55;
+    padding: 10px 18px;
+    border-radius: 8px;
 }
 
 .signup-button:hover {
