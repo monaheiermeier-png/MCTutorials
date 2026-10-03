@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+Profile - MCTutorials
+{% endblock %}
+
+
+{% block content %}
+
+<main>
+
+    <div class="signup-container">
+
+        <h1>👤 Your Profile</h1>
+
+        <h2>{{ session["username"] }}</h2>
+
+        <div style="margin: 25px 0;">
+
+            <img
+                src="{{ url_for('static', filename='profile_pictures/' + profile_picture) }}"
+                alt="Profile Picture"
+                style="
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid #55ff55;
+                "
+            >
+
+        </div>
+
+
+        <form
+            method="POST"
+            action="/profile"
+            enctype="multipart/form-data"
+        >
+
+            <input
+                type="file"
+                name="profile_picture"
+                accept="image/png, image/jpeg, image/webp"
+                required
+            >
+
+            <button type="submit">
+                Upload Profile Picture
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+{% endblock %}
