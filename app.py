@@ -21,7 +21,8 @@ def init_db():
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL
+            password TEXT NOT NULL,
+            profile_picture TEXT DEFAULT 'default.png'
         )
     """)
 
@@ -29,7 +30,24 @@ def init_db():
     conn.close()
 
 
+def add_profile_picture_column():
+    conn = sqlite3.connect(DATABASE)
+
+    try:
+        conn.execute(
+            "ALTER TABLE users ADD COLUMN profile_picture TEXT DEFAULT 'default.png'"
+        )
+        conn.commit()
+
+    except sqlite3.OperationalError:
+        # Spalte existiert bereits
+        pass
+
+    conn.close()
+
+
 init_db()
+add_profile_picture_column()
 
 
 # =========================
@@ -90,8 +108,11 @@ def signup():
         conn = sqlite3.connect(DATABASE)
 
         conn.execute(
-            "INSERT INTO users (username, password) VALUES (?, ?)",
-            (username, password_hash)
+            """
+            INSERT INTO users (username, password, profile_picture)
+            VALUES (?, ?, ?)
+            """,
+            (username, password_hash, "default.png")
         )
 
         conn.commit()
