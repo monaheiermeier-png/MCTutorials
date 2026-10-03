@@ -1,65 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Redstone - MCTutorials</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% extends "base.html" %}
 
-<body>
-
-<header>
-    <h1>🔴 Redstone</h1>
-    <p>Redstone tutorials for Minecraft</p>
-</header>
-
-<nav>
-
-    <div class="nav-left">
-
-        <a href="/">Home</a>
-        <a href="/redstone">Redstone</a>
-        <a href="/buildings">Buildings</a>
-        <a href="/farms">Farms</a>
-
-    </div>
+{% block title %}
+Redstone - MCTutorials
+{% endblock %}
 
 
-    <div class="nav-right">
-
-        {% if session.get("username") %}
-
-            <span class="username">
-                👤 {{ session["username"] }}
-            </span>
-
-            <a href="/logout" class="login-button">
-                LOGOUT
-            </a>
-
-        {% else %}
-
-            <a href="/login" class="login-button">
-                LOGIN
-            </a>
-
-            <a href="/signup" class="signup-button">
-                SIGN UP
-            </a>
-
-        {% endif %}
-
-    </div>
-
-</nav>
+{% block content %}
 
 <main>
+
     <h2>Redstone Tutorials</h2>
-    <p>Learn how to create machines, contraptions and automatic systems with Redstone.</p>
+
+    <p>
+        Learn how to create machines, contraptions
+        and automatic systems with Redstone.
+    </p>
+
 </main>
 
-<footer>
-    <p>© 2026 MCTutorials</p>
-</footer>
-
-</body>
-</html>
+{% endblock %}
