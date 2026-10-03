@@ -1,16 +1,18 @@
-from flask import Flask, render_template, request, redirect, url_for
-from werkzeug.security import generate_password_hash
+from flask import Flask, render_template, request, redirect, url_for, session
+from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
-import os
 
 app = Flask(__name__)
+
+# Wird für die Login-Sitzung benötigt
+app.secret_key = "mctutorials-secret-key"
+
+DATABASE = "users.db"
+
 
 # =========================
 # DATABASE
 # =========================
-
-DATABASE = "users.db"
-
 
 def init_db():
     conn = sqlite3.connect(DATABASE)
@@ -27,7 +29,6 @@ def init_db():
     conn.close()
 
 
-# Datenbank beim Start erstellen
 init_db()
 
 
@@ -74,19 +75,15 @@ def farms():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
 
-    # Wenn die Seite nur geöffnet wird
     if request.method == "GET":
         return render_template("signup.html")
 
-    # Daten aus dem Formular holen
     username = request.form.get("username")
     password = request.form.get("password")
 
-    # Prüfen, ob beide Felder ausgefüllt sind
     if not username or not password:
         return "Bitte Username und Passwort eingeben."
 
-    # Passwort sicher verschlüsseln / hashen
     password_hash = generate_password_hash(password)
 
     try:
@@ -100,18 +97,64 @@ def signup():
         conn.commit()
         conn.close()
 
-        return """
-        <h1>Account erstellt! ✅</h1>
-        <p>Dein Account wurde erfolgreich gespeichert.</p>
-        <a href="/">Zur Startseite</a>
-        """
+        # Benutzer direkt einloggen
+        session["username"] = username
+
+        return redirect(url_for("home"))
 
     except sqlite3.IntegrityError:
         return """
         <h1>Username bereits vergeben ❌</h1>
         <p>Dieser Username existiert bereits.</p>
-        <a href="/signup">Zurück</a>
+        <a href="/signup">Zurück zu Sign Up</a>
         """
+
+
+# =========================
+# LOGIN
+# =========================
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
+    if request.method == "GET":
+        return render_template("login.html")
+
+    username = request.form.get("username")
+    password = request.form.get("password")
+
+    conn = sqlite3.connect(DATABASE)
+
+    user = conn.execute(
+        "SELECT * FROM users WHERE username = ?",
+        (username,)
+    ).fetchone()
+
+    conn.close()
+
+    if user and check_password_hash(user[2], password):
+
+        session["username"] = username
+
+        return redirect(url_for("home"))
+
+    return """
+    <h1>Login fehlgeschlagen ❌</h1>
+    <p>Username oder Passwort ist falsch.</p>
+    <a href="/login">Zurück zum Login</a>
+    """
+
+
+# =========================
+# LOGOUT
+# =========================
+
+@app.route("/logout")
+def logout():
+
+    session.pop("username", None)
+
+    return redirect(url_for("home"))
 
 
 # =========================
