@@ -167,6 +167,33 @@ def login():
 
 
 # =========================
+# PROFILE
+# =========================
+
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+
+    if "username" not in session:
+        return redirect(url_for("login"))
+
+    conn = sqlite3.connect(DATABASE)
+
+    user = conn.execute(
+        "SELECT profile_picture FROM users WHERE username = ?",
+        (session["username"],)
+    ).fetchone()
+
+    conn.close()
+
+    profile_picture = user[0] if user and user[0] else "default.png"
+
+    return render_template(
+        "profile.html",
+        profile_picture=profile_picture
+    )
+
+
+# =========================
 # LOGOUT
 # =========================
 
