@@ -43,9 +43,19 @@
 
             {% if session.get("username") %}
 
-                <span class="username">
-                    👤 {{ session["username"] }}
-                </span>
+                <a href="/profile" class="profile-link">
+
+                    <img
+                        src="{{ url_for('static', filename='profile_pictures/' + current_profile_picture) }}"
+                        alt="Profile"
+                        class="nav-profile-picture"
+                    >
+
+                    <span class="username">
+                        {{ current_username }}
+                    </span>
+
+                </a>
 
                 <a href="/logout" class="login-button">
                     LOGOUT
