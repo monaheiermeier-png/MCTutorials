@@ -43,23 +43,39 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+
     position: relative;
+
     padding: 15px 25px;
+
     background-color: #111111;
+
     border-bottom: 2px solid #333333;
+
+    min-height: 60px;
 }
+
+
+/* Mittlere Navigation */
 
 .nav-left {
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 25px;
 }
 
+
+/* Normale Navigation-Links */
+
 nav a {
     color: white;
+
     text-decoration: none;
+
     font-size: 18px;
+
     font-weight: bold;
 }
 
@@ -69,27 +85,80 @@ nav a:hover {
 
 
 /* =========================
-   SIGN UP BUTTON
+   LOGIN / SIGN UP / ACCOUNT
    ========================= */
 
-.signup-button {
+.nav-right {
     position: absolute;
+
     right: 25px;
 
-    background-color: #55aa55;
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* Login Button */
+
+.login-button {
+    background-color: #333333;
+
     color: white !important;
 
     padding: 10px 18px;
+
     border-radius: 8px;
 
     font-size: 18px;
+
     font-weight: bold;
+
+    text-decoration: none;
+}
+
+.login-button:hover {
+    background-color: #555555;
+
+    color: white !important;
+}
+
+
+/* Sign Up Button */
+
+.signup-button {
+    background-color: #55aa55;
+
+    color: white !important;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
     text-decoration: none;
 }
 
 .signup-button:hover {
     background-color: #55ff55;
+
     color: #111111 !important;
+}
+
+
+/* Username */
+
+.username {
+    color: #55ff55;
+
+    font-size: 18px;
+
+    font-weight: bold;
 }
 
 
@@ -99,21 +168,31 @@ nav a:hover {
 
 main {
     max-width: 1100px;
+
     margin: 0 auto;
+
     padding: 50px 20px;
 }
 
+
 main h2 {
     text-align: center;
+
     font-size: 36px;
+
     color: #55ff55;
+
     margin-bottom: 15px;
 }
 
+
 main > p {
     text-align: center;
+
     font-size: 18px;
+
     color: #cccccc;
+
     margin-bottom: 40px;
 }
 
@@ -124,15 +203,22 @@ main > p {
 
 .tutorials {
     display: flex;
+
     justify-content: center;
+
     gap: 25px;
+
     flex-wrap: wrap;
 }
 
+
 .card {
     background-color: #1b241b;
+
     width: 280px;
+
     padding: 25px;
+
     border-radius: 12px;
 
     text-align: center;
@@ -142,14 +228,19 @@ main > p {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+
 .card h3 {
     font-size: 22px;
+
     color: #55ff55;
 }
 
+
 .card p {
     font-size: 16px;
+
     line-height: 1.5;
+
     color: #dddddd;
 }
 
@@ -164,37 +255,45 @@ main > p {
     padding: 12px 20px;
 
     border: none;
+
     border-radius: 8px;
 
     background-color: #55aa55;
+
     color: white;
 
     font-size: 16px;
+
     font-weight: bold;
 
     cursor: pointer;
 }
 
+
 .card button:hover {
     background-color: #55ff55;
+
     color: #111111;
 }
 
 
 /* =========================
-   SIGN UP PAGE
+   SIGN UP / LOGIN PAGE
    ========================= */
 
 .signup-container {
     width: 400px;
+
     max-width: calc(100% - 40px);
 
     margin: 80px auto;
+
     padding: 40px;
 
     background-color: #1b241b;
 
     border: 1px solid #355535;
+
     border-radius: 12px;
 
     text-align: center;
@@ -204,20 +303,28 @@ main > p {
     box-sizing: border-box;
 }
 
+
 .signup-container h1 {
     font-size: 40px;
 
     color: #55ff55;
 
     margin-top: 0;
+
     margin-bottom: 30px;
 }
 
+
 .signup-container form {
     display: flex;
+
     flex-direction: column;
+
     gap: 15px;
 }
+
+
+/* Eingabefelder */
 
 .signup-container input {
     box-sizing: border-box;
@@ -229,35 +336,68 @@ main > p {
     font-size: 18px;
 
     border-radius: 8px;
+
     border: 1px solid #555555;
 
     background-color: #111111;
+
     color: white;
 }
 
+
+.signup-container input::placeholder {
+    color: #aaaaaa;
+}
+
+
 .signup-container input:focus {
     outline: none;
+
     border-color: #55ff55;
 }
+
+
+/* Sign Up / Login Formular-Button */
 
 .signup-container button {
     padding: 15px;
 
     font-size: 18px;
+
     font-weight: bold;
 
     border-radius: 8px;
+
     border: none;
 
     background-color: #55aa55;
+
     color: white;
 
     cursor: pointer;
 }
 
+
 .signup-container button:hover {
     background-color: #55ff55;
+
     color: #111111;
+}
+
+
+/* Link auf Login/Signup-Seiten */
+
+.signup-container a {
+    color: #55ff55;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+
+.signup-container a:hover {
+    text-decoration: underline;
 }
 
 
@@ -279,6 +419,7 @@ footer {
     border-top: 2px solid #333333;
 }
 
+
 footer p {
     margin: 0;
 }
@@ -288,44 +429,63 @@ footer p {
    MOBILE
    ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     nav {
         flex-wrap: wrap;
+
         gap: 15px;
+
+        padding: 15px;
     }
+
 
     .nav-left {
         flex-wrap: wrap;
+
         gap: 15px;
     }
 
-    .signup-button {
+
+    .nav-right {
         position: static;
-        margin-left: 10px;
+
+        width: 100%;
+
+        justify-content: center;
+
+        margin-top: 5px;
     }
+
 
     header h1 {
         font-size: 36px;
     }
 
+
     main h2 {
         font-size: 28px;
     }
 
+
     .tutorials {
         flex-direction: column;
+
         align-items: center;
     }
+
 
     .card {
         width: calc(100% - 40px);
     }
 
+
     .signup-container {
         margin: 50px auto;
+
         padding: 25px;
     }
+
 
     .signup-container h1 {
         font-size: 32px;
