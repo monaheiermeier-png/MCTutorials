@@ -13,15 +13,44 @@
 </header>
 
 <nav>
+
     <div class="nav-left">
+
         <a href="/">Home</a>
         <a href="/redstone">Redstone</a>
         <a href="/buildings">Buildings</a>
         <a href="/farms">Farms</a>
+
     </div>
 
-    <a href="/signup" class="signup-button">SIGN UP</a>
-</nav>>
+
+    <div class="nav-right">
+
+        {% if session.get("username") %}
+
+            <span class="username">
+                👤 {{ session["username"] }}
+            </span>
+
+            <a href="/logout" class="login-button">
+                LOGOUT
+            </a>
+
+        {% else %}
+
+            <a href="/login" class="login-button">
+                LOGIN
+            </a>
+
+            <a href="/signup" class="signup-button">
+                SIGN UP
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
 
 <main>
     <h2>Farm Tutorials</h2>
