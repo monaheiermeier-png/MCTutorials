@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<nav>
 
-    <meta charset="UTF-8">
+    <div class="nav-left">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <a href="/">Home</a>
+        <a href="/redstone">Redstone</a>
+        <a href="/buildings">Buildings</a>
+        <a href="/farms">Farms</a>
 
-    <title>Sign Up - MCTutorials</title>
+    </div>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
 
-</head>
+    <div class="nav-right">
+
+        {% if session.get("username") %}
+
+            <span class="username">
+                👤 {{ session["username"] }}
+            </span>
+
+            <a href="/logout" class="login-button">
+                LOGOUT
+            </a>
+
+        {% else %}
+
+            <a href="/login" class="login-button">
+                LOGIN
+            </a>
+
+            <a href="/signup" class="signup-button">
+                SIGN UP
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
 
 
 <body>
