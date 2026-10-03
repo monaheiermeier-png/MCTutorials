@@ -1,89 +1,70 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>MCTutorials</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+{% extends "base.html" %}
 
-<body>
-
-    <header>
-        <h1>⛏️ MCTutorials</h1>
-        <p>Your Minecraft Tutorials</p>
-    </header>
-
-<nav>
-
-    <div class="nav-left">
-
-        <a href="/">Home</a>
-        <a href="/redstone">Redstone</a>
-        <a href="/buildings">Buildings</a>
-        <a href="/farms">Farms</a>
-
-    </div>
+{% block title %}
+MCTutorials
+{% endblock %}
 
 
-    <div class="nav-right">
+{% block content %}
 
-        {% if session.get("username") %}
+<main>
 
-            <span class="username">
-                👤 {{ session["username"] }}
-            </span>
+    <h2>Welcome to MCTutorials!</h2>
 
-            <a href="/logout" class="login-button">
-                LOGOUT
-            </a>
+    <p>
+        Here you'll find simple Minecraft tutorials
+        for beginners and advanced players.
+    </p>
 
-        {% else %}
 
-            <a href="/login" class="login-button">
-                LOGIN
-            </a>
+    <div class="tutorials">
 
-            <a href="/signup" class="signup-button">
-                SIGN UP
-            </a>
+        <div class="card">
 
-        {% endif %}
+            <h3>🔴 Redstone Tutorials</h3>
 
-    </div>
+            <p>
+                Learn how to build automatic farms and machines.
+            </p>
 
-</nav>
-    <main>
-        <h2>Wellcome to MCTutorials!</h2>
-        <p>
-            Here you'll find simple Minecraft tutorials
-            for beginners and advanced players.
-        </p>
-
-        <div class="tutorials">
-
-            <div class="card">
-                <h3>🔴 Redstone Tutorials</h3>
-                <p>Learn how to build automatic farms and machines.</p>
-                <button>Learn more</button>
-            </div>
-
-            <div class="card">
-                <h3>🏠 Buildings</h3>
-                <p>Build beautiful houses, castles, and other Minecraft structures.</p>
-                <button>Learn more</button>
-            </div>
-
-            <div class="card">
-                <h3>🌾 Farms</h3>
-                <p>Build automated farms and gather resources.</p>
-                <button>Learn more</button>
-            </div>
+            <button onclick="window.location.href='/redstone'">
+                Learn more
+            </button>
 
         </div>
-    </main>
 
-    <footer>
-        <p>© 2026 MCTutorials</p>
-    </footer>
 
-</body>
-</html>
+        <div class="card">
+
+            <h3>🏠 Buildings</h3>
+
+            <p>
+                Build beautiful houses, castles, and other Minecraft structures.
+            </p>
+
+            <button onclick="window.location.href='/buildings'">
+                Learn more
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🌾 Farms</h3>
+
+            <p>
+                Build automated farms and gather resources.
+            </p>
+
+            <button onclick="window.location.href='/farms'">
+                Learn more
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
