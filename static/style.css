@@ -55,9 +55,6 @@ nav {
     min-height: 60px;
 }
 
-
-/* Mittlere Navigation */
-
 .nav-left {
     display: flex;
     align-items: center;
@@ -66,16 +63,10 @@ nav {
     gap: 25px;
 }
 
-
-/* Normale Navigation-Links */
-
 nav a {
     color: white;
-
     text-decoration: none;
-
     font-size: 18px;
-
     font-weight: bold;
 }
 
@@ -85,23 +76,64 @@ nav a:hover {
 
 
 /* =========================
-   LOGIN / SIGN UP / ACCOUNT
+   NAVIGATION RIGHT
    ========================= */
 
 .nav-right {
     position: absolute;
-
     right: 25px;
 
     display: flex;
-
     align-items: center;
 
     gap: 10px;
 }
 
 
-/* Login Button */
+/* =========================
+   PROFILE IN NAVIGATION
+   ========================= */
+
+.profile-link {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+}
+
+.nav-profile-picture {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid #55ff55;
+}
+
+.profile-link:hover .username {
+    color: white;
+}
+
+
+/* =========================
+   USERNAME
+   ========================= */
+
+.username {
+    color: #55ff55;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   LOGIN BUTTON
+   ========================= */
 
 .login-button {
     background-color: #333333;
@@ -113,7 +145,6 @@ nav a:hover {
     border-radius: 8px;
 
     font-size: 18px;
-
     font-weight: bold;
 
     text-decoration: none;
@@ -126,7 +157,9 @@ nav a:hover {
 }
 
 
-/* Sign Up Button */
+/* =========================
+   SIGN UP BUTTON
+   ========================= */
 
 .signup-button {
     background-color: #55aa55;
@@ -138,7 +171,6 @@ nav a:hover {
     border-radius: 8px;
 
     font-size: 18px;
-
     font-weight: bold;
 
     text-decoration: none;
@@ -148,17 +180,6 @@ nav a:hover {
     background-color: #55ff55;
 
     color: #111111 !important;
-}
-
-
-/* Username */
-
-.username {
-    color: #55ff55;
-
-    font-size: 18px;
-
-    font-weight: bold;
 }
 
 
@@ -174,7 +195,6 @@ main {
     padding: 50px 20px;
 }
 
-
 main h2 {
     text-align: center;
 
@@ -184,7 +204,6 @@ main h2 {
 
     margin-bottom: 15px;
 }
-
 
 main > p {
     text-align: center;
@@ -211,7 +230,6 @@ main > p {
     flex-wrap: wrap;
 }
 
-
 .card {
     background-color: #1b241b;
 
@@ -228,13 +246,11 @@ main > p {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-
 .card h3 {
     font-size: 22px;
 
     color: #55ff55;
 }
-
 
 .card p {
     font-size: 16px;
@@ -269,7 +285,6 @@ main > p {
     cursor: pointer;
 }
 
-
 .card button:hover {
     background-color: #55ff55;
 
@@ -303,7 +318,6 @@ main > p {
     box-sizing: border-box;
 }
 
-
 .signup-container h1 {
     font-size: 40px;
 
@@ -314,7 +328,6 @@ main > p {
     margin-bottom: 30px;
 }
 
-
 .signup-container form {
     display: flex;
 
@@ -322,9 +335,6 @@ main > p {
 
     gap: 15px;
 }
-
-
-/* Eingabefelder */
 
 .signup-container input {
     box-sizing: border-box;
@@ -344,20 +354,15 @@ main > p {
     color: white;
 }
 
-
 .signup-container input::placeholder {
     color: #aaaaaa;
 }
-
 
 .signup-container input:focus {
     outline: none;
 
     border-color: #55ff55;
 }
-
-
-/* Sign Up / Login Formular-Button */
 
 .signup-container button {
     padding: 15px;
@@ -377,15 +382,11 @@ main > p {
     cursor: pointer;
 }
 
-
 .signup-container button:hover {
     background-color: #55ff55;
 
     color: #111111;
 }
-
-
-/* Link auf Login/Signup-Seiten */
 
 .signup-container a {
     color: #55ff55;
@@ -394,7 +395,6 @@ main > p {
 
     font-weight: bold;
 }
-
 
 .signup-container a:hover {
     text-decoration: underline;
@@ -419,7 +419,6 @@ footer {
     border-top: 2px solid #333333;
 }
 
-
 footer p {
     margin: 0;
 }
@@ -439,13 +438,11 @@ footer p {
         padding: 15px;
     }
 
-
     .nav-left {
         flex-wrap: wrap;
 
         gap: 15px;
     }
-
 
     .nav-right {
         position: static;
@@ -457,16 +454,13 @@ footer p {
         margin-top: 5px;
     }
 
-
     header h1 {
         font-size: 36px;
     }
 
-
     main h2 {
         font-size: 28px;
     }
-
 
     .tutorials {
         flex-direction: column;
@@ -474,11 +468,9 @@ footer p {
         align-items: center;
     }
 
-
     .card {
         width: calc(100% - 40px);
     }
-
 
     .signup-container {
         margin: 50px auto;
@@ -486,8 +478,8 @@ footer p {
         padding: 25px;
     }
 
-
     .signup-container h1 {
         font-size: 32px;
     }
+
 }
