@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from werkzeug.security import generate_password_hash, check_password_hash
-from werkzeug.utils import secure_filename
 import sqlite3
 import os
 import uuid
@@ -65,6 +64,46 @@ def add_profile_picture_column():
 
 init_db()
 add_profile_picture_column()
+
+
+# =========================
+# PROFILE PICTURE FOR ALL PAGES
+# =========================
+
+@app.context_processor
+def inject_user():
+
+    if "username" not in session:
+
+        return {
+            "current_username": None,
+            "current_profile_picture": "default.png"
+        }
+
+    conn = sqlite3.connect(DATABASE)
+
+    user = conn.execute(
+        """
+        SELECT username, profile_picture
+        FROM users
+        WHERE username = ?
+        """,
+        (session["username"],)
+    ).fetchone()
+
+    conn.close()
+
+    if user:
+
+        return {
+            "current_username": user[0],
+            "current_profile_picture": user[1] or "default.png"
+        }
+
+    return {
+        "current_username": None,
+        "current_profile_picture": "default.png"
+    }
 
 
 # =========================
